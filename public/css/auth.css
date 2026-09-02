@@ -1,0 +1,77 @@
+/* ============================================================
+   Tema compartido de las pantallas de acceso: login, registro y
+   recuperar contrasena (panel izquierdo de marca + formulario).
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg-dark:    #1a1a1a;
+    --bg-panel:   #222222;
+    --bg-input:   #2a2a2a;
+    --border:     #333333;
+    --orange:     #f07000;
+    --orange-dim: #c05500;
+    --text:       #e8e8e8;
+    --text-muted: #888888;
+    --text-label: #cccccc;
+}
+
+html, body { height: 100%; font-family: 'Barlow', sans-serif; background: var(--bg-dark); color: var(--text); }
+
+.layout { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+
+/* ─── PANEL IZQUIERDO (marca) ─── */
+.branding { background: var(--bg-dark); display: flex; flex-direction: column; justify-content: space-between; padding: 36px 48px; }
+.flame-icon { width: 32px; height: 42px; }
+.brand-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.sistema-label { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.brand-name-la { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1; color: var(--text); display: block; }
+.brand-name-parrilla { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1; color: var(--orange); display: block; }
+.brand-subtitle { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--orange); margin-top: 6px; margin-bottom: 28px; }
+.brand-desc { font-size: 14px; font-weight: 300; color: var(--text-muted); line-height: 1.7; max-width: 280px; }
+.footer { font-size: 12px; color: var(--text-muted); }
+
+/* ─── PANEL DERECHO (formulario) ─── */
+.form-panel { background: var(--bg-panel); display: flex; align-items: center; justify-content: center; padding: 48px 64px; }
+.form-box { width: 100%; max-width: 420px; }
+.form-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; font-weight: 400; letter-spacing: 1px; color: var(--text); margin-bottom: 6px; }
+.form-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; }
+
+.field { margin-bottom: 18px; }
+.field label { display: block; font-size: 13px; color: var(--text-label); margin-bottom: 7px; }
+
+.input-wrap { position: relative; display: flex; align-items: center; }
+.input-wrap input { width: 100%; background: var(--bg-input); border: 1px solid var(--border); border-radius: 8px; padding: 13px 48px 13px 16px; font-size: 14px; font-family: 'Barlow', sans-serif; color: var(--text); outline: none; transition: border-color .2s; }
+.input-wrap input::placeholder { color: var(--text-muted); }
+.input-wrap input:focus { border-color: var(--orange); }
+.input-icon { position: absolute; right: 14px; color: var(--orange); pointer-events: none; display: flex; align-items: center; }
+
+.pass-icons { position: absolute; right: 12px; display: flex; gap: 8px; align-items: center; }
+.pass-icons button { background: none; border: none; padding: 0; cursor: pointer; color: var(--text-muted); display: flex; align-items: center; transition: color .15s; }
+.pass-icons button:hover { color: var(--orange); }
+.pass-icons .lock-icon { color: var(--orange); pointer-events: none; }
+.input-wrap input.has-pass-icons { padding-right: 72px; }
+
+/* Campo simple, sin icono (usado en recuperar contrasena) */
+.field input.plain { padding: 13px 16px; }
+
+.error-msg, .alert-error { background: rgba(240,112,0,.12); border: 1px solid var(--orange); color: var(--orange); border-radius: 8px; padding: 10px 16px; font-size: 13px; margin-bottom: 20px; line-height: 1.6; }
+.success-msg, .alert-success { background: rgba(0,200,100,.1); border: 1px solid #00c864; color: #00c864; border-radius: 8px; padding: 10px 16px; font-size: 13px; margin-bottom: 20px; line-height: 1.6; }
+
+.btn-primary { width: 100%; background: var(--orange); border: none; border-radius: 8px; padding: 15px; font-size: 16px; font-family: 'Barlow', sans-serif; font-weight: 600; color: #fff; cursor: pointer; margin-top: 6px; letter-spacing: .5px; transition: background .2s; }
+.btn-primary:hover { background: var(--orange-dim); }
+.btn-primary.outline { background: transparent; border: 2px solid var(--orange); color: var(--orange); }
+.btn-primary.outline:hover { background: var(--orange); color: #fff; }
+
+.form-footer { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 26px; font-size: 13px; color: var(--text-muted); }
+.btn-ghost { background: transparent; border: 1px solid var(--border); border-radius: 6px; padding: 7px 16px; font-size: 13px; font-family: 'Barlow', sans-serif; color: var(--text-muted); cursor: pointer; transition: border-color .2s, color .2s; text-decoration: none; display: inline-block; }
+.btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+.link-muted { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+.link-muted:hover { color: var(--orange); }
+
+@media (max-width: 700px) {
+    .layout { grid-template-columns: 1fr; }
+    .branding { display: none; }
+    .form-panel { padding: 40px 24px; }
+}

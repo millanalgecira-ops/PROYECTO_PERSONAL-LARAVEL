@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class PedidoItem extends Model
+{
+    protected $table = 'pedido_items';
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'pedido_id',
+        'producto_id',
+        'nombre_producto',
+        'cantidad',
+        'precio_unitario',
+        'subtotal',
+        'nota_especial',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'precio_unitario' => 'decimal:2',
+            'subtotal' => 'decimal:2',
+        ];
+    }
+
+    public function pedido(): BelongsTo
+    {
+        return $this->belongsTo(Pedido::class);
+    }
+
+    public function producto(): BelongsTo
+    {
+        return $this->belongsTo(Producto::class);
+    }
+}
