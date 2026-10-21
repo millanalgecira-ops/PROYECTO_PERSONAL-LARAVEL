@@ -13,6 +13,7 @@ use App\Http\Controllers\Cliente\DashboardController as ClienteDashboardControll
 use App\Http\Controllers\Cocina\ComandaController;
 use App\Http\Controllers\Publico\CarritoController;
 use App\Http\Controllers\Publico\CarritoPageController;
+use App\Http\Controllers\Admin\FacturaController;
 use App\Http\Controllers\Publico\ConfirmacionController;
 use App\Http\Controllers\Publico\HomeController;
 use App\Http\Controllers\Staff\PedidoEstadoController;
@@ -88,6 +89,7 @@ Route::middleware(['auth:web', 'role:administrador'])->prefix('admin')->name('ad
     Route::post('/mesas/{mesa}/liberar', [AdminMesaController::class, 'liberar'])->name('mesas.liberar');
 
     Route::get('/ventas', [VentaController::class, 'index'])->name('ventas.index');
+    Route::post('/facturas', [FacturaController::class, 'store'])->name('facturas.store');
 });
 
 /*

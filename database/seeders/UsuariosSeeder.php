@@ -36,7 +36,42 @@ class UsuariosSeeder extends Seeder
                 'password' => 'password',
                 'rol_id' => 2,
             ],
-        ];
+                    [
+                'nombre' => 'Benjamin Santos',
+                'correo' => 'benjamin@gmail.com',
+                'telefono' => null,
+                'password' => 'Ben123!',
+                'rol_id' => 3,
+            ],
+            [
+                'nombre' => 'benjamin',
+                'correo' => 'benjamin123@gmail.com',
+                'telefono' => '3001234567',
+                'password' => 'Ben456@',
+                'rol_id' => 3,
+            ],
+            [
+                'nombre' => 'benjamin2',
+                'correo' => 'benjamin1234@gmail.com',
+                'telefono' => '123456789100',
+                'password' => 'Ben789#',
+                'rol_id' => 3,
+            ],
+            [
+                'nombre' => 'miguell',
+                'correo' => 'miguelancho@gmail.com',
+                'telefono' => '12345678910',
+                'password' => 'Miguel01$',
+                'rol_id' => 3,
+            ],
+            [
+                'nombre' => 'gordoche',
+                'correo' => 'gordoche@gmail.com',
+                'telefono' => '1234567891',
+                'password' => 'Gordo22%',
+                'rol_id' => 3,
+            ],
+];
 
         foreach ($usuarios as $u) {
             Usuario::updateOrCreate(

@@ -89,24 +89,24 @@
                 @csrf
                 <div class="field">
                     <label>Nombre del producto *</label>
-                    <input type="text" name="nombre" placeholder="Ej: Pollo asado entero" required>
+                    <input type="text" name="name" placeholder="Ej: Pollo asado entero" required>
                 </div>
                 <div class="field">
                     <label>Descripci&oacute;n</label>
-                    <textarea name="descripcion" placeholder="Descripción del producto..."></textarea>
+                    <textarea name="detalle" placeholder="Descripción del producto..."></textarea>
                 </div>
                 <div class="field">
                     <label>URL de imagen <span style="color:var(--muted)">(opcional)</span></label>
-                    <input type="url" name="imagen_url" placeholder="https://...">
+                    <input type="url" name="img" placeholder="https://...">
                 </div>
                 <div class="field-row">
                     <div class="field">
                         <label>Precio *</label>
-                        <input type="number" name="precio" placeholder="42000" min="0" step="100" required>
+                        <input type="number" name="valor" placeholder="42000" min="0" step="100" required>
                     </div>
                     <div class="field">
                         <label>Categor&iacute;a *</label>
-                        <select name="categoria_id" required>
+                        <select name="id" required>
                             <option value="">Seleccionar...</option>
                             @foreach ($categorias as $cat)
                                 <option value="{{ $cat->id }}">{{ $cat->nombre }}</option>
